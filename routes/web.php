@@ -40,7 +40,7 @@ Route::get('/about', function () {
 Route::get('/post', function () {
     return view('post');
 });
-Route::get('/clear-cache', function() {
+Route::get('/clear-cache', function () {
     Artisan::call('cache:clear');
     return "Cache is cleared";
 });
@@ -66,6 +66,7 @@ Route::get('/admin-vg/chart', function () {
 Route::get('/admin-vg/lock', function () {
     return view('backend/lock_screen');
 });
+
 Route::get('/admin-vg/edit', function () {
     return view('backend/edit');
 });
@@ -78,8 +79,10 @@ Route::get('/blog-create', function () {
 Route::get('/welvome', function () {
     return view('welcome');
 });
-Route::get('blog-create','BlogsController@view');
-Route::post('blogcreate','BlogsController@kirim');
-Route::get('user','UserController@view');
-Route::post('kirim','UserController@kirim');
 
+// Route::get('blog-create', 'BlogsController@view');
+// Route::post('blogcreate', 'BlogsController@kirim');
+// Route::get('user', 'UserController@view');
+// Route::post('kirim', 'UserController@kirim');
+
+Route::resource('blog', 'BlogController');
