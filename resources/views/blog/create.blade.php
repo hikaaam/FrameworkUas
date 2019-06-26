@@ -14,6 +14,17 @@
 
         <div class="container">
             <section class="wrapper site-min-height">
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                @if (session('error'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
             <div>
                 <h4><i class="fa fa-angle-right"></i> Judul Article</h4>
                 <div class="row mt">
@@ -52,13 +63,13 @@
                 <div class="row mt">
                     <div class="col-lg-12">
 
-                            {{Form::textarea("editor1", old("editor1") ? old("editor1") : (!empty($user) ? $user->editor1 : null),
+                            {{Form::textarea("isiberita", old("isiberita") ? old("isiberita") : (!empty($user) ? $user->editor1 : null),
                                 [
 
                                 ])
                             }}
                             <script>
-                                    CKEDITOR.replace( 'editor1' );
+                                    CKEDITOR.replace( 'isiberita' );
                             </script>
                     </div>
                 </div>
