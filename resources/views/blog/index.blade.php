@@ -2,10 +2,10 @@
 <head>
     <title>Blog view</title>
     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
-   
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <style>
-    
+
 /*=========================================================
    POST
 ===========================================================*/
@@ -93,28 +93,24 @@
 					<div class="section-title">
                         <h2>Recent Post</h2>
                         <div class="header-icons">
-                                <button  class="searchlogo" id="searchIcon" onclick="openForm()"> <i class="fas fa-search"></i></button>
-                                
-                                    <div class="form-popup" id="myForm">
-                                    <form action="{{ url('/search') }}"  class="form-container">
-                                        <input type="text" name="search" id="inputSearch">
-                                        <button type="submit" class="btn"><i class="fa fa-search" aria-hidden="true"></i></button>
-                                        <button type="button" class="btn cancel" onclick="closeForm()"><i class="fas fa-times"></i> </button>
-                                        </form>
-                        
-                                    </div>
-                        
+
+                            <div class="form-popup" id="myForm">
+                                <div  class="form-container">
+                                    <input type="text" name="search" id="inputSearch">
+                                    <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                                </div>
+
                             </div>
 					</div>
 				</div>
 
                 <!-- post -->
                 @foreach ($blogs as $item)
-                    
-                
+
+
 				<div class="col-md-4">
 					<div class="post">
-                    <a class="post-img" href="{{ url('blog/show?id=')}}{{ $item->id }}"><img src="images/blog/{{ $item->foto }} " alt=""></a>
+                    <a class="post-img" href="{{ url('blog/show?id=')}}{{ $item->id }}"><img src="{{ asset('images/blog/'.$item->foto) }} " alt=""></a>
 						<div class="post-body">
 							<div class="post-meta">
 							<span class="post-date">{{ $item->created_at }}</span>
