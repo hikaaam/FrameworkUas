@@ -9,7 +9,8 @@ class BlogController extends Controller
 {
     public function index()
     {
-        return view('blog.index');
+        $data['blogs'] = Blog::all();
+        return view('blog.index')->with($data);
     }
 
     public function create()
