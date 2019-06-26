@@ -14,11 +14,22 @@
 
         <div class="container">
             <section class="wrapper site-min-height">
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                @if (session('error'))
+                    <div class="alert alert-success">
+                        {{ session('error') }}
+                    </div>
+                @endif
             <div>
                 <h4><i class="fa fa-angle-right"></i> Judul Article</h4>
                 <div class="row mt">
                     <div class="col-sm-6">
-                        {!! Form::open(array('url' =>  url('createblog', [])   ,'method' => 'POST')) !!}
+                        {!! Form::open(array('url' =>  url('blog', [])   ,'method' => 'POST', 'enctype'=>'multipart/form-data')) !!}
 
 
                             {{Form::text("judul",
@@ -52,13 +63,13 @@
                 <div class="row mt">
                     <div class="col-lg-12">
 
-                            {{Form::textarea("editor1", old("editor1") ? old("editor1") : (!empty($user) ? $user->editor1 : null),
+                            {{Form::textarea("isiberita", old("isiberita") ? old("isiberita") : (!empty($user) ? $user->editor1 : null),
                                 [
 
                                 ])
                             }}
                             <script>
-                                    CKEDITOR.replace( 'editor1' );
+                                    CKEDITOR.replace( 'isiberita' );
                             </script>
                     </div>
                 </div>
