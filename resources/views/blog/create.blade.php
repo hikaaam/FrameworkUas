@@ -39,6 +39,10 @@
                                     "placeholder" => "judul",
                                 ])
                             }}
+
+                            @if ($errors->has('judul'))
+                                <p class="text-danger">{{ $errors->first('judul') }}</p>
+                            @endif
                     </div>
                 </div>
             </div>
@@ -52,6 +56,10 @@
                                     "class" => "btn btn-success"
                                 ])
                             }}
+
+                            @if ($errors->has('foto'))
+                                <p class="text-danger">{{ $errors->first('foto') }}</p>
+                            @endif
                     </div>
                 </div>
             </div>
@@ -71,6 +79,10 @@
                             <script>
                                     CKEDITOR.replace( 'isiberita' );
                             </script>
+
+                            @if ($errors->has('isiberita'))
+                                <p class="text-danger">{{ $errors->first('foto') }}</p>
+                            @endif
                     </div>
                 </div>
             </div>
