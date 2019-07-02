@@ -45,7 +45,7 @@ class BlogController extends Controller
         $blog = Blog::create($data);
         if ($blog)
             return redirect()->route('blog.create')->withSuccess('Sukses tambah data');
-
+        
         return redirect()->route('blog.create')->withError('Gagal tambah data');
     }
 
